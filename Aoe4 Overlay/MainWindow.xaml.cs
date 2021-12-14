@@ -31,19 +31,22 @@ namespace Aoe4_Overlay
         public MainWindow()
         {
             InitializeComponent();
+            IronOcr.Installation.LicenseKey = "IRONOCR.ALEXANDERKILIAN1.25780-678BD52A37-3IBFSQWIWZTREUPI-6OROQOY7XWEU-NFKDOAITURLJ-HQ6TQPKFHN3V-UXOFCVY3D2TR-UUIIDE-TIIYVXRH5F2DUA-DEPLOYMENT.TRIAL-4YFB7H.TRIAL.EXPIRES.11.JAN.2022";
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            OCRManager ocr = new OCRManager();
-            Player[] players = new Player[ocr.GetPlayers().Length];
-            players = ocr.GetPlayers();
+
+            Player[] players = await new PlayerCreator().GetPlayersAsync();
+            FillBuildorder();
             FillPlayerNames(players);
             FillWinrates(players);
             FillRating(players);
-            FillBuildorder();
 
+            colourButtonBlue.Visibility = Visibility.Collapsed;
+            colourButtonPink.Visibility = Visibility.Collapsed;
+            colourButtonRed.Visibility = Visibility.Collapsed;
             startButton.Visibility = Visibility.Collapsed;
         }
 
@@ -75,6 +78,44 @@ namespace Aoe4_Overlay
             player2Name.Content = players[1].name;
             player3Name.Content = players[2].name;
             player4Name.Content = players[3].name;
+        }
+
+        private void colourButtonPink_Click(object sender, RoutedEventArgs e)
+        {
+            string colour = "#ffaacc";
+            SetColour(colour);
+        }
+
+        private void colourButtonRed_Click(object sender, RoutedEventArgs e)
+        {
+            string colour = "#FF0000";
+            SetColour(colour);
+        }
+
+        private void colourButtonBlue_Click(object sender, RoutedEventArgs e)
+        {
+            string colour = "#FF0004FF";
+            SetColour(colour);
+        }
+
+        private void SetColour(string colour)
+        {
+            player1Name.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player2Name.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player3Name.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player4Name.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+
+            player1Winrate.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player2Winrate.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player3Winrate.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player4Winrate.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+
+            player1Rating.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player2Rating.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player3Rating.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+            player4Rating.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
+
+            builorder.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom(colour);
         }
     }
 }

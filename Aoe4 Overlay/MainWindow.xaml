@@ -53,6 +53,18 @@
             </RowDefinition>
 
             <RowDefinition Height="25">
+                
+            </RowDefinition>
+
+            <RowDefinition Height="25">
+                
+            </RowDefinition>
+
+            <RowDefinition Height="25">
+                
+            </RowDefinition>
+
+            <RowDefinition Height="25">
             </RowDefinition>
             
             <RowDefinition Height="20">
@@ -60,7 +72,7 @@
 
         </Grid.RowDefinitions>
 
-        <Label x:Name="player1Name" Content="Player1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" FontWeight="Bold">
+        <Label x:Name="player1Name" Content="Player1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" FontWeight="Bold" Background="#00000000">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
@@ -140,7 +152,7 @@
 
         </Label>
 
-        <Label x:Name="builorder" Content="Build Order" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" Grid.RowSpan="2" FontWeight="Bold">
+        <Label x:Name="builorder" Content="Build Order" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" Grid.RowSpan="6" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
@@ -148,7 +160,15 @@
         </Label>
 
 
-        <Button x:Name="startButton" Click="Button_Click" Grid.Column="0" Grid.Row="7" Content="start" Background="#ffb0b0b0" Cursor="Hand" IsHitTestVisible="True">
+        <Button x:Name="startButton" Click="Button_Click" Grid.Column="0" Grid.Row="10" Content="start" Background="#ffb0b0b0" Cursor="Hand" IsHitTestVisible="True">
+        </Button>
+
+        <Button x:Name="colourButtonPink" Click="colourButtonPink_Click" Grid.Column="2" Grid.Row="7" Content="Pink" Background="#FFFF00F5" Cursor="Hand" IsHitTestVisible="True"/>
+
+        <Button x:Name="colourButtonRed" Click="colourButtonRed_Click" Grid.Column="2" Grid.Row="8" Content="Red" Background="Red" Cursor="Hand" IsHitTestVisible="True">
+        </Button>
+        
+        <Button x:Name="colourButtonBlue" Click="colourButtonBlue_Click" Grid.Column="2" Grid.Row="9" Content="Blue" Background="#FF0004FF" Cursor="Hand" IsHitTestVisible="True">
         </Button>
 
     </Grid>
